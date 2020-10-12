@@ -1,16 +1,34 @@
 @import './nord.scss';
 
+* {
+  box-sizing: border-box;
+}
+
+$playerA: $nord10;
+$playerB: $nord11;
+$playerC: $nord13;
+$playerD: $nord14;
 html,
 body {
   height: 100vh;
   margin: 0;
   display: grid;
   place-items: center;
+  background-color: $nord0;
 }
 
 .playing-field {
+  $size: 1000px;
+  $gap: 10px;
+  border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
+  width: $size;
+  place-items: center;
+  height: $size;
+  place-items: center;
+  gap: $gap;
+  padding: $gap;
   grid-template-areas:
     'baseD baseD baseD baseD . . . baseA baseA baseA baseA '
     'baseD baseD baseD baseD . destinationA . baseA baseA baseA baseA '
@@ -23,43 +41,62 @@ body {
     'baseC baseC baseC baseC . destinationC . baseB baseB baseB baseB'
     'baseC baseC baseC baseC . destinationC . baseB baseB baseB baseB'
     'baseC baseC baseC baseC . . . baseB baseB baseB baseB';
-  width: 800px;
-  height: 800px;
 
+  .base {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: $gap;
+    place-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+  }
   .baseA {
     grid-area: baseA;
-    background-color: red;
+    background-color: transparentize($color: $playerA, $amount: 0.5);
   }
   .baseB {
     grid-area: baseB;
-    background-color: blue;
+    background-color: transparentize($color: $playerB, $amount: 0.5);
   }
   .baseC {
     grid-area: baseC;
-    background-color: yellow;
+    background-color: transparentize($color: $playerC, $amount: 0.5);
   }
   .baseD {
     grid-area: baseD;
-    background-color: green;
+    background-color: transparentize($color: $playerD, $amount: 0.5);
+  }
+  .destination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: $gap;
+    padding: 10px;
+    border-radius: 10px;
   }
   .destinationA {
     grid-area: destinationA;
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: transparentize($color: $playerA, $amount: 0.5);
   }
   .destinationB {
     grid-area: destinationB;
-    background-color: rgba(0, 0, 255, 0.5);
+    background-color: transparentize($color: $playerB, $amount: 0.5);
   }
   .destinationC {
     grid-area: destinationC;
-    background-color: rgba(255, 255, 0, 0.5);
+    background-color: transparentize($color: $playerC, $amount: 0.5);
   }
   .destinationD {
     grid-area: destinationD;
-    background-color: rgba(0, 255, 0, 0.5);
+    background-color: transparentize($color: $playerD, $amount: 0.5);
   }
   .field {
-    background-color: black;
+    background-color: $nord1;
+    border-radius: 50%;
+    width: $size / 15;
+    height: $size / 15;
   }
   .button {
     grid-area: button;
