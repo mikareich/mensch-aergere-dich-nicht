@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
 @import './nord.scss';
 
 * {
@@ -8,6 +9,10 @@ $playerA: $nord10;
 $playerB: $nord11;
 $playerC: $nord13;
 $playerD: $nord14;
+$playerA-dark: #465b76;
+$playerB-dark: #774b55;
+$playerC-dark: #8d8066;
+$playerD-dark: #697966;
 html,
 body {
   height: 100vh;
@@ -15,6 +20,7 @@ body {
   display: grid;
   place-items: center;
   background-color: $nord0;
+  font-family: 'Nunito', sans-serif;
 }
 
 .playing-field {
@@ -53,52 +59,93 @@ body {
   }
   .baseA {
     grid-area: baseA;
-    background-color: transparentize($color: $playerA, $amount: 0.5);
   }
   .baseB {
     grid-area: baseB;
-    background-color: transparentize($color: $playerB, $amount: 0.5);
   }
   .baseC {
     grid-area: baseC;
-    background-color: transparentize($color: $playerC, $amount: 0.5);
   }
   .baseD {
     grid-area: baseD;
-    background-color: transparentize($color: $playerD, $amount: 0.5);
   }
   .destination {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: space-evenly;
-    gap: $gap;
-    padding: 10px;
     border-radius: 10px;
+    &.column {
+      flex-direction: column;
+    }
   }
   .destinationA {
     grid-area: destinationA;
-    background-color: transparentize($color: $playerA, $amount: 0.5);
   }
   .destinationB {
     grid-area: destinationB;
-    background-color: transparentize($color: $playerB, $amount: 0.5);
   }
   .destinationC {
     grid-area: destinationC;
-    background-color: transparentize($color: $playerC, $amount: 0.5);
   }
   .destinationD {
     grid-area: destinationD;
-    background-color: transparentize($color: $playerD, $amount: 0.5);
   }
   .field {
+    $field-size: $size / 15;
     background-color: $nord1;
     border-radius: 50%;
-    width: $size / 15;
-    height: $size / 15;
+    width: $field-size;
+    height: $field-size;
+    border: 10px solid $nord1;
+    &.startA {
+      border-color: $playerA-dark;
+    }
+    &.startB {
+      border-color: $playerB-dark;
+    }
+    &.startC {
+      border-color: $playerC-dark;
+    }
+    &.startD {
+      border-color: $playerD-dark;
+    }
   }
   .button {
     grid-area: button;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: $nord7;
+    border: none;
+    color: $nord0;
+    font-size: larger;
+    font-family: unset;
+    border-radius: 5px;
   }
+}
+.playerA {
+  background-color: $playerA !important;
+}
+.playerB {
+  background-color: $playerB !important;
+}
+.playerC {
+  background-color: $playerC !important;
+}
+.playerD {
+  background-color: $playerD !important;
+}
+.playerA-dark {
+  background-color: $playerA-dark;
+}
+.playerB-dark {
+  background-color: $playerB-dark;
+}
+.playerC-dark {
+  background-color: $playerC-dark;
+}
+.playerD-dark {
+  background-color: $playerD-dark;
 }
