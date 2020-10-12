@@ -1,16 +1,67 @@
+@import './nord.scss';
+
 html,
 body {
   height: 100vh;
   margin: 0;
+  display: grid;
+  place-items: center;
 }
 
 .playing-field {
   display: grid;
-  grid-template-areas: 'base base field field field base base' 'base base field destination field base base';
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-areas:
+    'baseD baseD baseD baseD . . . baseA baseA baseA baseA '
+    'baseD baseD baseD baseD . destinationA . baseA baseA baseA baseA '
+    'baseD baseD baseD baseD . destinationA . baseA baseA baseA baseA '
+    'baseD baseD baseD baseD . destinationA . baseA baseA baseA baseA '
+    '. . . . . destinationA . . . . .'
+    '. destinationD destinationD destinationD destinationD button  destinationB destinationB destinationB destinationB .'
+    '. . . . . destinationC . . . . .'
+    'baseC baseC baseC baseC . destinationC . baseB baseB baseB baseB'
+    'baseC baseC baseC baseC . destinationC . baseB baseB baseB baseB'
+    'baseC baseC baseC baseC . destinationC . baseB baseB baseB baseB'
+    'baseC baseC baseC baseC . . . baseB baseB baseB baseB';
   width: 800px;
   height: 800px;
 
-  .base {
-    grid-area: base;
+  .baseA {
+    grid-area: baseA;
+    background-color: red;
+  }
+  .baseB {
+    grid-area: baseB;
+    background-color: blue;
+  }
+  .baseC {
+    grid-area: baseC;
+    background-color: yellow;
+  }
+  .baseD {
+    grid-area: baseD;
+    background-color: green;
+  }
+  .destinationA {
+    grid-area: destinationA;
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  .destinationB {
+    grid-area: destinationB;
+    background-color: rgba(0, 0, 255, 0.5);
+  }
+  .destinationC {
+    grid-area: destinationC;
+    background-color: rgba(255, 255, 0, 0.5);
+  }
+  .destinationD {
+    grid-area: destinationD;
+    background-color: rgba(0, 255, 0, 0.5);
+  }
+  .field {
+    background-color: black;
+  }
+  .button {
+    grid-area: button;
   }
 }
