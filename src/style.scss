@@ -1,0 +1,16 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.playing-field {
+  display: grid;
+  grid-template-areas: 'base base field field field base base' 'base base field destination field base base';
+  width: 800px;
+  height: 800px;
+
+  .base {
+    grid-area: base;
+  }
+}
