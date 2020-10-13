@@ -19,6 +19,23 @@ function dice() {
  * Handles User Interaction
  */
 /**
+ * Render Figures of all Players by Positions ID
+ */
+function renderFigures() {
+  players.forEach((player) => {
+    player.positions.forEach((positionID) => {
+      const field = document.getElementById(positionID);
+      let { className } = field;
+      // remove other players and keep further important classes
+      className = className.replace(/player?(A|B|C|D)/, '');
+      // add current figure to this field
+      className = `${className} ${player.id}`;
+      field.className = className;
+    });
+  });
+}
+
+/**
  *
  * @param {players[0]} player Player who moves
  * @param {number} diceNumber Number of steps to move
