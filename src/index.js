@@ -6,18 +6,28 @@ const allFields = document.querySelectorAll('.field');
 const allBases = document.querySelectorAll('.base');
 const allDestinations = document.querySelectorAll('.destination');
 const diceBTN = document.querySelector('.button');
-
+const currentPlayer = players[0];
 /**
  * @returns {number} Number between 1 and 6
  */
 function dice() {
-  const number = Math.round(Math.random() * 6);
+  const number = Math.round(Math.random() * 5 + 1);
   return number;
 }
+
+diceBTN.addEventListener('click', onDice);
 
 /**
  * Handles User Interaction
  */
+function onDice() {
+  // get and display dice number
+  const diceNumber = dice();
+  diceBTN.innerHTML = diceNumber.toString();
+  // mark possible moves for player
+  markPossibleMoves(currentPlayer, diceNumber);
+}
+
 /**
  * Render Figures of all Players by Positions ID
  */
@@ -65,3 +75,5 @@ function markPossibleMoves(player, diceNumber) {
     field.classList.add(`${player.id}-dark`);
   });
 }
+
+renderFigures();
