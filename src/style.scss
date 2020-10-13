@@ -30,10 +30,10 @@ body {
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
-  width: $size;
-  min-width: 650px;
+  width: clamp(650px, $size, 100vh);
   height: $size;
   min-height: 650px;
+  max-height: 100vh;
   place-items: center;
   place-items: center;
   gap: $gap;
@@ -56,8 +56,8 @@ body {
     grid-template-columns: repeat(2, auto);
     gap: $gap;
     place-items: center;
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     border-radius: 10px;
   }
   .baseA {
