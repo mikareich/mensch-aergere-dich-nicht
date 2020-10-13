@@ -16,6 +16,7 @@ $playerD-dark: #697966;
 html,
 body {
   height: 100vh;
+  width: 100vw;
   margin: 0;
   display: grid;
   place-items: center;
@@ -24,14 +25,16 @@ body {
 }
 
 .playing-field {
-  $size: 1000px;
+  $size: 650px;
   $gap: 10px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   width: $size;
-  place-items: center;
+  min-width: 650px;
   height: $size;
+  min-height: 650px;
+  place-items: center;
   place-items: center;
   gap: $gap;
   padding: $gap;
@@ -111,6 +114,7 @@ body {
     &.startD {
       border-color: $playerD-dark;
     }
+    transition: 200ms;
   }
   .button {
     grid-area: button;
@@ -138,14 +142,14 @@ body {
   background-color: $playerD !important;
 }
 .playerA-dark {
-  background-color: $playerA-dark;
+  background-color: $playerA-dark !important;
 }
 .playerB-dark {
-  background-color: $playerB-dark;
+  background-color: $playerB-dark !important;
 }
 .playerC-dark {
-  background-color: $playerC-dark;
+  background-color: $playerC-dark !important;
 }
 .playerD-dark {
-  background-color: $playerD-dark;
+  background-color: $playerD-dark !important;
 }
