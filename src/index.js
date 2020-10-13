@@ -14,3 +14,8 @@ function dice() {
   const number = Math.round(Math.random() * 6);
   return number;
 }
+
+/**
+ * Handles User Interaction
+ */
+function main() {}
