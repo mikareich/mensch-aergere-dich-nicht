@@ -18,4 +18,33 @@ function dice() {
 /**
  * Handles User Interaction
  */
-function main() {}
+/**
+ *
+ * @param {players[0]} player Player who moves
+ * @param {number} diceNumber Number of steps to move
+ */
+function markPossibleMoves(player, diceNumber) {
+  const figuresInGame = player.positions.filter(
+    (position) => typeof position === 'number'
+  );
+
+  const moves = figuresInGame.map((positionID) => {
+    const passedFields = [];
+    const targetFieldID = positionID + diceNumber;
+    const targetField = document.getElementById(targetFieldID);
+    // check if move is valid
+    if (!targetField.classList.contains(player.id)) {
+      // add field to pass
+      for (let i = 1; i < diceNumber + 1; i++) {
+        passedFields.push(positionID + i);
+      }
+    }
+    return passedFields;
+  });
+
+  // render possible moves
+  moves.flat().forEach((positionID) => {
+    const field = document.getElementById(positionID.toString());
+    field.classList.add(`${player.id}-dark`);
+  });
+}
