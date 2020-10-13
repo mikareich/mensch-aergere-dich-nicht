@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import './style.scss';
+import { players } from './players';
 
 const allFields = document.querySelectorAll('.field');
 const allBases = document.querySelectorAll('.base');
