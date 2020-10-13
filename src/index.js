@@ -5,6 +5,7 @@ import { players } from './players';
 const allFields = document.querySelectorAll('.field');
 const allBases = document.querySelectorAll('.base');
 const allDestinations = document.querySelectorAll('.destination');
+const diceBTN = document.querySelector('.button');
 
 /**
  * @returns {number} Number between 1 and 6
