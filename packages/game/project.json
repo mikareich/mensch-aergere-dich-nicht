@@ -1,0 +1,33 @@
+{
+  "root": "packages/game",
+  "sourceRoot": "packages/game/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/game",
+        "main": "packages/game/src/index.ts",
+        "tsConfig": "packages/game/tsconfig.lib.json",
+        "assets": ["packages/game/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/game/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/game"],
+      "options": {
+        "jestConfig": "packages/game/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
